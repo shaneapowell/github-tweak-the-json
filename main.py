@@ -19,12 +19,19 @@ def _writeJson(filename: str, field: str, value: str):
     """
     write the requested field to the json file.
     """
-    obj = json.load(open(filename))
+    file = open(filename, "r")
+    obj = json.load(file)
+    file.close()
+
     print(f"SET {field} = {value}")
     cmd = f"obj{field} = value" 
     exec(cmd)
-    with (open(filename, "w")) as file:
-        file.write(json.dumps(obj, indent = 2))
+
+    file = open(filename, "w")
+    file.write(json.dumps(obj, indent = 2))
+    file.flush()
+    file.close()
+    
 
 def _fieldToDictList(field: str):
     """
