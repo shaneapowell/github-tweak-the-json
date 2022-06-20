@@ -24,10 +24,10 @@ runs:
   image: Dockerfile
   args:
     - --action 
-    - ${{ inputs.action }}
+    - "${{ inputs.action }}"
     - --filename 
-    - ${{ inputs.filename }}
+    - "${{ inputs.filename }}"
     - --field 
-    - ${{ inputs.field }}
+    - "${{ inputs.field }}"
     - --value 
-    - ${{ inputs.value }}
+    - "${{ inputs.value }}"

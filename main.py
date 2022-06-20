@@ -43,10 +43,10 @@ def main():
     """
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('--action',    dest='action',    type=str,   required=True, choices=['read', 'write'], default='write')
-    parser.add_argument('--filename',  dest='filename',  type=str,   required=True, default=None)
-    parser.add_argument('--field',     dest='field',     type=str,   required=True, default=None)
-    parser.add_argument('--value',     dest='value',     type=str,   required=False, default=None)
+    parser.add_argument('--action',    dest='action',    type=str,   required=True,  choices=['read', 'write'], default='write')
+    parser.add_argument('--filename',  dest='filename',  type=str,   required=True,  default=None)
+    parser.add_argument('--field',     dest='field',     type=str,   required=True,  default=None)
+    parser.add_argument('--value',     dest='value',     type=str,   required=False, default='')
     
     args = parser.parse_args()
 
