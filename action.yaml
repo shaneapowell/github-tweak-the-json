@@ -1,0 +1,29 @@
+name: Tweek the JSON
+description: Write, Update and Read values from a JSON file. Runs in it's own docker container, so should work on any runner. Self hosted or otherwise.
+inputs:
+  action:
+    required: true
+    description: "Either 'read' or 'write'.  If 'read' is specified, the value param is ignored.  if 'write', the output value is returned."
+  filename:
+    required: true
+    description: "The filename  to access."
+  field:
+    required: true
+    description: "The field to R/W. eg. Can be nested  ['firstName'] will reference { 'firstName': 'john' }.   ['user']['firstName'] will reference { 'user': { 'firstName': 'doe' } }"
+  value:
+    required: false
+    description: "The value to set to the file. Only used when the 'write' action is specified."
+
+  outputs:
+    value:
+      description: "The value either set or read from the json file. Both read and write actions return a value here."
+
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - "--action ${{ inputs.action }}"
+    - "--filename ${{ inputs.filename }}"
+    - "--field ${{ inputs.field }}"
+    - "--value ${{ inputs.value }}"
