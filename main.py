@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import sys
 import argparse
 import json
 
@@ -26,6 +26,17 @@ def _writeJson(filename: str, field: str, value: str):
     with (open(filename, "w")) as file:
         file.write(json.dumps(obj, indent = 2))
 
+def _fieldToDictList(field: str):
+    """
+    Convert a dot-notation sequence, into a named dict reference.
+    eg.  "user.address.zip" == ['user']['address']['zip']
+    """
+    dictPath = ""
+    fieldList = field.split('.')
+    for f in fieldList:
+        dictPath += f"['{f}']"
+    return dictPath
+
 
 
 def main():
@@ -39,13 +50,15 @@ def main():
     
     args = parser.parse_args()
 
+    field = _fieldToDictList(args.field)
+
     if args.action == 'write':
-        _writeJson(args.filename, args.field, args.value)
+        _writeJson(args.filename, field, args.value)
     else:
-        val = _readJson(args.filename, args.field)
+        val = _readJson(args.filename, field)
         print(f"::set-output name=value::{val}")
 
-
 if __name__ == '__main__':
+    print(sys.argv[1:])
     main()
 
