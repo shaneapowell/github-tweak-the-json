@@ -23,7 +23,10 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - --action ${{ inputs.action }}
-    - --filename ${{ inputs.filename }}
-    - --field ${{ inputs.field }}
+    - --action 
+    - ${{ inputs.action }}
+    - --filename 
+    - ${{ inputs.filename }}
+    - --field 
+    - ${{ inputs.field }}
     - --value ${{ inputs.value }}
