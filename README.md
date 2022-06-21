@@ -5,8 +5,6 @@ A simple github action to read or write or update a local json file.
 
 I created this because so many other actions out there rely on the runner being setup with Node.  We use a number of self-hosted runners that do not have node setup.  
 
-Not dependant on python being installed on your runner since this runs inside it's own python image, so should work on self-hosted as well as cloud runners.
-
 # Syntax
 ```yaml
 - uses: shaneapowell/github-tweak-the-json@v1

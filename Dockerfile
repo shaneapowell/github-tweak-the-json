@@ -1,4 +1,5 @@
-FROM python:3.8-slim
+FROM alpine
+RUN apk add --update nodejs
+COPY main.js main.js
+ENTRYPOINT ["/usr/bin/node"]
 
-COPY main.py main.py
-ENTRYPOINT ["/main.py"]

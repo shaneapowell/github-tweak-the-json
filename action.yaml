@@ -23,11 +23,8 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - --action 
+    - /main.js
     - "${{ inputs.action }}"
-    - --filename 
     - "${{ inputs.filename }}"
-    - --field 
     - "${{ inputs.field }}"
-    - --value 
     - "${{ inputs.value }}"
