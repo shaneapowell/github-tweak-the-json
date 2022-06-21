@@ -1,4 +1,4 @@
-name: Tweek the JSON
+name: Tweak the JSON
 description: Write, Update and Read values from a JSON file. Runs in it's own docker alpine container with nodejs.
 author: shaneapowell
 branding:
