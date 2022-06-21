@@ -1,5 +1,5 @@
 name: Tweek the JSON
-description: Write, Update and Read values from a JSON file. Runs in it's own docker container, so should work on any runner. Self hosted or otherwise.
+description: Write, Update and Read values from a JSON file. Runs in it's own docker alpine container with nodejs.
 inputs:
   action:
     required: true
